@@ -7,8 +7,6 @@
 const pattern = /[サシスセソツテラルロザズゼゾ]|[オコソノホモヨロヲョ]ウ|シャ|.[タバト]./;
 const dic_path = "./scripts/kuromoji/dict";
 
-var last_result = "";
-
 window.addEventListener("load", init);
 
 function init() {
@@ -122,7 +120,6 @@ function process() {
         }
         result = postProcess(result);
         console.log(result);
-        last_result = result;
         setText(result.replace(/\n/g, "<br>"));
 
         alert_process.style.opacity = "0.0";
