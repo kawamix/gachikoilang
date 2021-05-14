@@ -1,0 +1,29 @@
+.alert{
+    position: fixed;
+    opacity: 0;
+    transition: 0.7s;
+    z-index: -1;
+}
+
+.move{
+    transform:translateY(2em);
+}
+
+#input{
+    z-index: 1;
+    border-width: 0.3em;
+}
+
+.card{
+    border-width: 0.5em;
+}
+
+#gachikoi{
+    font-size: 1.3em;
+}
+
+#button{
+    background: #e08bd7;
+    border-color: #f5cbf0;    
+
+}
