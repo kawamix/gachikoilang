@@ -2,7 +2,8 @@
  * くぉ～～んに～ちに～んにっ！
  * ガチ恋ぽん〇こだ～～お♡
  * 
- * みたわね～～～？！
+ * みちゃわね～～～？！
+ * あたちののうないちぇかい♡
  */
 const pattern = /[サシスセソツテラルロザズゼゾ]|[オコソノホモヨロヲョ]ウ|シャ|.[タバト]./;
 const dic_path = "./scripts/kuromoji/dict";
@@ -48,6 +49,20 @@ function convertToGachikoi(str) {
     for (let i = 0; i < gachikoi_language_rules.length; ++i) {
         let rule = gachikoi_language_rules[i];
         if (rule.length < 3) {
+            if (typeof rule[0] === "string") {
+                // 簡易的な肯定先読み (for Sarari(iOS)!!!)
+                let match = rule[0].match(/\[.*\]/)
+                if (!match) {
+                    str = str.replace(rule[0], rule[1]);
+                    continue;
+                }
+                let chars = match[0].slice(1, match[0].length - 1);
+                let next_char = rule[0].charAt(rule[0].length - 1);
+                for (let char of chars) {
+                    let target = char + next_char;
+                    str = str.replace(target, char + rule[1]);
+                }
+            }
             str = str.replace(rule[0], rule[1]);
         } else {
             // 簡易的な否定後読み (for Safari(iOS)!!!)
