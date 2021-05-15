@@ -1,3 +1,20 @@
+body{
+    background-image: url("assets/bg.jpg");
+    font-family: "M PLUS Rounded 1c";
+}
+
+@font-face{
+    font-family: "kawaiitegakifont";
+    src: url("assets/kawaiitegakifont.woff");
+}
+h1 {
+    font-weight: 800;
+    font-family: "kawaiitegakifont";
+    font-size: 2.5em;
+    color: #ffffff;
+    text-shadow: 1px 1px 10px #ef748b, -1px 1px 10px #ef748b, 1px -1px 10px #ef748b, -1px -1px 10px #ef748b;
+}
+
 .alert{
     position: fixed;
     opacity: 0;
@@ -5,13 +22,31 @@
     z-index: -1;
 }
 
+#loader{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index:9;
+}
+
+#modal{
+    display: none;
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index:8;
+}
+
 .move{
-    transform:translateY(2em);
+    transform:translateY(100%);
 }
 
 #input{
     z-index: 1;
-    border-width: 0.3em;
 }
 
 .card{
@@ -22,8 +57,35 @@
     font-size: 1.3em;
 }
 
-#button{
-    background: #e08bd7;
-    border-color: #f5cbf0;    
+#result{
+    display: none;
+}
 
+#tweet-btn{
+    font-family: "kawaiitegakifont";
+    background: #1DA1F2;
+    border-color: #ffffff;
+}
+
+#copy-btn{
+    font-family: "kawaiitegakifont";
+    background: #909090;
+    border-color: #ffffff;
+}
+
+#button{
+    font-family: "kawaiitegakifont";
+    font-weight: 800;
+    background: #ef748b;
+    border-color: #ffffff;
+    border-width: 0.2em;
+    font-size: 1.5em;
+    padding: 0.5em 0;
+}
+
+#alert-success{
+    font-family: "kawaiitegakifont";
+    background: #ef748b;
+    color: #ffffff;
+    border-color: #ffffff;
 }

@@ -106,15 +106,21 @@ function process() {
     if (text.length < 1) {
         return;
     }
+
     document.getElementById("button").setAttribute("disabled", true);
     document.getElementById("copy-btn").setAttribute("disabled", true);
     document.getElementById("tweet-btn").setAttribute("disabled", true);
 
-    let alert_process = document.getElementById("alert-process");
+    document.getElementById("result").style.display = "block";
+
+    let result_element = document.getElementById("result");
+    let modal = document.getElementById("modal");
+    let loader = document.getElementById("loader");
+    result.style.display = "none";
+    modal.style.display = "block";
+    loader.style.display = "block";
+
     let alert_success = document.getElementById("alert-success");
-    alert_process.style.zIndex = "100";
-    alert_process.style.opacity = "1";
-    alert_process.classList.add("move");
     setText("変換ちゅう…");
 
     kuromoji.builder({ dicPath: dic_path }).build(function (err, tokenizer) {
@@ -136,10 +142,9 @@ function process() {
         result = postProcess(result);
         console.log(result);
         setText(result.replace(/\n/g, "<br>"));
-
-        alert_process.style.opacity = "0.0";
-        alert_process.classList.remove("move");
-        alert_process.style.zIndex = "-1";
+        result_element.style.display = "block";
+        modal.style.display = "none";
+        loader.style.display = "none";
 
         alert_success.textContent = "変換完了～💕";
         alert_success.style.zIndex = "100";

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,6 +17,9 @@
     <title>ガチ恋語に変換</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
         crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
+    <link href="loaders.min.css" rel="stylesheet">
+
     <link href="style.css" rel="stylesheet">
     <script src="./scripts/kuromoji/kuromoji.js"></script>
     <script src="./scripts/main.js"></script>
@@ -23,11 +27,26 @@
 </head>
 
 <body>
-    <div id="alert-process" class="alert alert-primary w-100">変換ちゅう...</div>
+    <div id="modal"></div>
     <div id="alert-success" class="alert alert-success w-100">変換完了💕</div>
     <div class="container-sm mt-2">
         <h1 class="text-center">ガチ恋語に変換</h1>
-
+        <div id="loader">
+            <div class="loader-inner ball-spin-fade-loader">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <div class="text-center mt-2">
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false" data-text="ガチ恋語変換 | ">Tweet</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
 
         <div class="form-group">
             <textarea maxlength="200" id="input" type="text" rows="7" class="form-control">メロスは激怒した。必ず、かの邪智暴虐の王を除かなければならぬと決意した。メロスには政治がわからぬ。</textarea>
@@ -35,15 +54,17 @@
         <div class="form-group mt-2">
             <button id="button" class="btn btn-large btn-primary w-100" type="button" id="button-addon1">レッツ～ガチ恋！</button>
         </div>
-        <div class="card mt-2">
-            <div id="gachikoi" class="card-body"></div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <button class="btn btn-secondary w-100" id="copy-btn" disabled>こぴー</button>
+        <div id="result">
+            <div class="card mt-2">
+                <div id="gachikoi" class="card-body"></div>
             </div>
-            <div class="col">
-                <button class="btn btn-primary w-100" id="tweet-btn" disabled>ついーと💕</button>
+            <div class="row">
+                <div class="col mt-2">
+                    <button class="btn btn-secondary w-100" id="copy-btn" disabled>こぴー</button>
+                </div>
+                <div class="col mt-2">
+                    <button class="btn btn-primary w-100" id="tweet-btn" disabled>ついーと💕</button>
+                </div>
             </div>
         </div>
     </div>
